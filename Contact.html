@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage de Émilie et Timothée</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<header>
+    <h1>Émilie et Timothée</h1>
+    <h2>Samedi 18 Septembre 2027</h2>
+</header>
+
+<nav class="menu">
+    <a href="Index.html">Accueil</a>    
+    <a href="#programme">Programme</a>
+    <a href="LeLieux.html">Le Lieux</a>
+    <a href="Contact.html">Confirmer votre présence</a>
+</nav>
+
+<section id="Contact">
+    <h2>Confirmez votre présence</h2>
+    <div class="card">
+        <p>
+            Pour préparer au mieux cet événement, nous avons besoin de votre réponse le plus rapidement possible !<br><br>
+            Merci à tous !
+        </p>
+    </div>
+</section>
+
+<section id="rsvp">
+    <div class="card">
+
+        <form action="https://formspree.io/f/myeydvyg" method="POST">
+            <input
+                type="text"
+                name="Nom"
+                placeholder="Nom et prénom"
+                required>
+
+            <select name="Presence" required>
+                <option value="" disabled selected>
+                    Votre réponse
+                </option>
+                <option>Je serai présent(e)</option>
+                <option>Je ne pourrai pas venir</option>
+            </select>
+
+            <textarea
+                name="Message"
+                rows="4"
+                placeholder="Message aux mariés"></textarea>
+
+            <input type="hidden" name="_captcha" value="false">
+
+            <button type="submit">Envoyer</button>
+
+        </form>
+
+    </div>
+</section>
+
+<footer>
+    ❤️ Émilie et Timothée - Merci de célébrer ce moment avec nous ❤️
+</footer>
+
+</body>
+</html>
