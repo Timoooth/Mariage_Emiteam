@@ -7,12 +7,23 @@ body {
 
 @media (max-width: 768px) {
 header {
-background-position: center top;
-background-repeat: no-repeat;
-min-height: 0.1vh;
-max-height:0.1vh;
-padding: 10px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding: 10px;
 }
+
+header h1 {
+    margin-top:0;
+    margin-bottom:0;
+    padding: 10px;
+}
+
+header h2 {
+    margin-top:0;
+    margin-bottom:0;
+    padding: 10px;
+}
+
 }
 
 header {
@@ -27,25 +38,11 @@ header {
     padding: 10vh 1vh;
 }
 
-@media (max-width: 768px) {
-header h1 {
-max-height: 0.1vh;
-padding: 10px;
-}
-}
 header h1 {
     font-size: clamp(2rem, 6vw, 8rem);
     padding: 1px 0;
     margin-top: 10px;
     margin-bottom: 0px;
-}
-
-@media (max-width: 768px) {
-header h2 {
-max-height: 0.2vh;
-min-height: 0.1vh;
-padding: 10px;
-}
 }
 
 header h2 {
