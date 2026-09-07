@@ -9,8 +9,8 @@ body {
 header {
 background-position: center top;
 background-repeat: no-repeat;
-min-height: 0.5vh;
-max-height:1vh;
+min-height: 0.1vh;
+max-height:0.1vh;
 padding: 10px;
 }
 }
