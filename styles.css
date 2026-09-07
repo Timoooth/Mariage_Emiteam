@@ -29,6 +29,7 @@ header h2 {
     color:rgb(255,255,255);
     padding-bottom: 0px;
     margin-bottom: 110px;
+
 }
 .menu {
     position:sticky;
@@ -66,6 +67,13 @@ nav a {
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
+}
+
+.photo-lieu {
+    width: 100%;
+    max-width: auto;
+    height: auto;
+    border-radius: 10px;
 }
 
 section {
