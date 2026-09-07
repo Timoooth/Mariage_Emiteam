@@ -10,7 +10,7 @@ header {
 background-position: center top;
 background-repeat: no-repeat;
 min-height: 1vh;
-max-height:5vh;
+max-height:2vh;
 padding: 10px;
 }
 }
@@ -31,8 +31,8 @@ header {
 header h1 {
 background-position: center top;
 background-repeat: no-repeat;
-max-height: 30vh;
-min-height: 10vh;
+max-height: 1vh;
+min-height: 2vh;
 padding: 10px;
 }
 }
