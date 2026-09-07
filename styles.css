@@ -31,7 +31,7 @@ header {
 header h1 {
 background-position: center top;
 background-repeat: no-repeat;
-max-height: 0.5vh;
+max-height: 0.2vh;
 min-height: 0.1vh;
 padding: 10px;
 }
@@ -45,7 +45,7 @@ header h1 {
 
 @media (max-width: 768px) {
 header h2 {
-max-height: 0.5vh;
+max-height: 0.2vh;
 min-height: 0.1vh;
 padding: 10px;
 }
