@@ -169,10 +169,10 @@ footer {
     background-repeat: no-repeat;
     font-family :'Candara light', sans-serif;       
     text-align: center;
-    font-size: clamp(2rem, 0.5vw, 4rem);
+    font-size: clamp(0.2rem, 0.5vw, 4rem);
     margin-top : 50px;
     background-position: 0% 60%;
     color: rgb(255,255,255);
     background-color: #d9b99b;
-    padding: 200px;
+    padding: 20vh;
 }
