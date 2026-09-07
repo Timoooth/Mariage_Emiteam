@@ -5,15 +5,26 @@ body {
     background-color: #fdfaf6;
 }
 
+@media (max-width: 768px) {
+header {
+background-position: center top;
+min-height: 50vh;
+padding: 60px 20px;
+}
+}
+
 header {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
                 url('Images/20260808_075522.jpg');
     font-family :'Candara light', sans-serif;
-    background-size: 100%;
-    background-position: 0% 0%;
+    background-size: cover;
+    background-position: center 2%;
+    background-repeat: no-repeat;
     color: rgb(255,255,255);
     text-align: center;
     padding: 30px 30px;
+
+
 }
 
 header h1 {
@@ -129,6 +140,14 @@ button {
 
 button:hover {
     background-color: #966744;
+}
+
+@media (max-width: 768px) {
+footer {
+background-position: center bottom;
+min-height: 50vh;
+padding: 60px 20px;
+}
 }
 
 footer {
