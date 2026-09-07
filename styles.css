@@ -71,7 +71,7 @@ nav a {
 
 .photo-lieu {
     width: 100%;
-    max-width: auto;
+    max-width: 1000px;
     height: auto;
     border-radius: 10px;
 }
