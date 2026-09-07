@@ -8,6 +8,7 @@ body {
 @media (max-width: 768px) {
 header {
 background-position: center top;
+background-repeat: no-repeat;
 min-height: 50vh;
 padding: 60px 20px;
 }
@@ -145,6 +146,7 @@ button:hover {
 @media (max-width: 768px) {
 footer {
 background-position: center bottom;
+background-repeat: no-repeat;
 min-height: 50vh;
 padding: 60px 20px;
 }
@@ -154,6 +156,7 @@ footer {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
     url('Images/20260808_075522.jpg');
     background-size: 100%;
+    background-repeat: no-repeat;
     font-family :'Candara light', sans-serif;       
     text-align: center;
     font-size: 30px;
