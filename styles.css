@@ -54,7 +54,7 @@ padding: 10px;
 }
 
 header h2 {
-    font-size: clamp(2rem, 2vw, 8rem);
+    font-size: clamp(0.9rem, 4vw, 1.8rem);
     color:rgb(255,255,255);
     padding-bottom: 0px;
     margin-bottom: 70px;
@@ -164,9 +164,9 @@ button:hover {
 footer {
 background-position: center bottom;
 background-repeat: no-repeat;
-max-height: 10vh;
+max-height: 8vh;
 min-height: 1vh;
-padding: 10px;
+padding:1px;
 }
 }
 
