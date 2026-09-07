@@ -9,7 +9,8 @@ body {
 header {
 background-position: center top;
 background-repeat: no-repeat;
-min-height: 50vh;
+min-height: 10vh;
+max-height:30vh;
 padding: 60px 20px;
 }
 }
@@ -157,8 +158,8 @@ background-position: center bottom;
 background-repeat: no-repeat;
 max-height: 30vh;
 min-height: 10vh;
-padding: 60px 20px;
-font-size: 10px;
+padding: 10px 10px;
+font-size: 15px;
 }
 }
 
