@@ -24,10 +24,18 @@ header {
     color: rgb(255,255,255);
     text-align: center;
     padding: 30px 30px;
-
-
 }
 
+@media (max-width: 768px) {
+header h1 {
+background-position: center top;
+background-repeat: no-repeat;
+font-size:20px;
+max-height: 30vh
+min-height: 10vh;
+padding: 60px 20px;
+}
+}
 header h1 {
     font-size: clamp(2rem, 6vw, 8rem);
     padding: 1px 0;
@@ -147,8 +155,10 @@ button:hover {
 footer {
 background-position: center bottom;
 background-repeat: no-repeat;
-min-height: 50vh;
+max-height: 30vh;
+min-height: 10vh;
 padding: 60px 20px;
+font-size: clamp(0.5rem, 0.5vw, 4rem);
 }
 }
 
