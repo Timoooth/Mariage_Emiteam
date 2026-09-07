@@ -158,7 +158,7 @@ background-repeat: no-repeat;
 max-height: 30vh;
 min-height: 10vh;
 padding: 60px 20px;
-font-size: clamp(0.5rem, 0.5vw, 4rem);
+font-size: 10px;
 }
 }
 
