@@ -167,6 +167,7 @@ background-repeat: no-repeat;
 max-height: 30vh;
 min-height: 10vh;
 padding: 10px;
+font-size:10px;
 }
 }
 
@@ -177,10 +178,10 @@ footer {
     background-repeat: no-repeat;
     font-family :'Candara light', sans-serif;       
     text-align: center;
-    font-size: clamp(0.2rem, 1.5vw, 4rem);
+    font-size: clamp(0.9rem, 1.5vw, 2rem);
     margin-top : 50px;
     background-position: 0% 60%;
     color: rgb(255,255,255);
     background-color: #d9b99b;
-    padding: 20vh;
+    padding: 15vh;
 }
