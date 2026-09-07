@@ -31,7 +31,7 @@ header h1 {
 background-position: center top;
 background-repeat: no-repeat;
 font-size:20px;
-max-height: 30vh
+max-height: 30vh;
 min-height: 10vh;
 padding: 60px 20px;
 }
