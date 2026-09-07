@@ -14,8 +14,9 @@ header {
 }
 
 header h1 {
-    margin-top:-200px;
+    margin-top:0px;
     margin-bottom:0;
+    max-height:10px;
     padding: 1px;
 }
 
