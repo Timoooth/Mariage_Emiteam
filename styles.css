@@ -40,7 +40,6 @@ header h1 {
     font-size: clamp(2rem, 6vw, 8rem);
     padding: 1px 0;
     margin-top: 10px;
-    padding-bottom: -20px;
     margin-bottom: -40px;
 }
 
@@ -48,7 +47,6 @@ header h1 {
 header h2 {
 background-position: center top;
 background-repeat: no-repeat;
-font-size:1vw;
 max-height: 30vh;
 min-height: 10vh;
 padding: 60px 20px;
@@ -168,8 +166,7 @@ background-position: center bottom;
 background-repeat: no-repeat;
 max-height: 30vh;
 min-height: 10vh;
-padding: 10px 10px;
-font-size: 15px;
+padding: 10px;
 }
 }
 
@@ -180,7 +177,7 @@ footer {
     background-repeat: no-repeat;
     font-family :'Candara light', sans-serif;       
     text-align: center;
-    font-size: clamp(0.2rem, 1vw, 4rem);
+    font-size: clamp(0.2rem, 1.5vw, 4rem);
     margin-top : 50px;
     background-position: 0% 60%;
     color: rgb(255,255,255);
