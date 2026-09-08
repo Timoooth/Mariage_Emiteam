@@ -10,7 +10,7 @@ header {
     font-family :'Overlock', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
-    margin:0;
+    margin:-80px;
     padding :0vh 0vh;
 }
 header h1 {
