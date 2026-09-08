@@ -7,7 +7,7 @@ body {
 
 @media (max-width: 768px) {
 header {
-    
+    font-family :'Candara light', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
     padding-bottom: 0;
