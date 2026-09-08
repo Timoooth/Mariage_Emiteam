@@ -10,7 +10,7 @@ header {
     font-family :'Overlock', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
-    padding :0vh;
+    padding :0vh 0vh;
 }
 header h1 {
     margin:0;
@@ -30,7 +30,7 @@ header {
     background-repeat: no-repeat;
     color: rgb(255,255,255);
     text-align: center;
-    padding: 2vh 0vh;
+    padding: 7vh 0vh;
 }
 header h1 {
     font-size: clamp(1rem, 5vw, 9rem);
@@ -41,7 +41,7 @@ header h2 {
     font-size: clamp(0.9rem, 2vw, 1.8rem);
     color:rgb(255,255,255);
     margin:0;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
 }
 .menu {
     position:sticky;
