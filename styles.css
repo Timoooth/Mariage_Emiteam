@@ -219,9 +219,9 @@ footer {
     box-sizing: border-box;
 }
 footer .f{
-    font-size: clamp(1rem, 6vw, 9rem);
+    font-size: clamp(1rem, 8vw, 9rem);
     padding: 0px;
-    margin :-30px;
+    margin-top:10px;
 .coeur {
 font-size: 0.2em;
 vertical-align: top;
