@@ -6,7 +6,7 @@ body {
 }
 header {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                url('20260808_075522.jpg');
+                url('Images/header_light.jpg');
     font-family :'Bellota', sans-serif;
     background-size: cover;
     background-position: center 2%;
@@ -190,10 +190,10 @@ button:hover {
 
 footer {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-    url('Images/20260808_075522.jpg');
+        url('Images/header_light.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
-    font-family :'Overlock', sans-serif;       
+    font-family :'Bellota', sans-serif;       
     text-align: center;
     font-size: clamp(0.9rem, 4vw, 1.8rem);
     margin-top : 10px;
