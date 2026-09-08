@@ -20,6 +20,19 @@ header h2 {
     margin:0;
     padding: 0;
 }
+.menu a {
+    display: inline-block;
+    position:sticky;
+    background-color: white;
+    color: #b07c52;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: clamp(1rem, 5vw, 9rem);
+}
 }
 header {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
@@ -30,7 +43,7 @@ header {
     background-repeat: no-repeat;
     color: rgb(255,255,255);
     text-align: center;
-    padding: 7vh 0vh;
+    padding: 0vh 0vh;
 }
 header h1 {
     font-size: clamp(1rem, 5vw, 9rem);
