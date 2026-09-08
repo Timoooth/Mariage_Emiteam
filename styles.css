@@ -33,19 +33,19 @@ header {
     background-repeat: no-repeat;
     color: rgb(255,255,255);
     text-align: center;
-    padding: 3vh 1vh;
+    padding: 4vh 1vh;
 }
 header h1 {
-    font-size: clamp(2rem, 6vw, 8rem);
+    font-size: clamp(1rem, 5vw, 9rem);
     padding: 1px 0;
     margin-top: 10px;
     margin-bottom: 0px;
 }
 header h2 {
-    font-size: clamp(0.9rem, 4vw, 1.8rem);
+    font-size: clamp(0.9rem, 2vw, 1.8rem);
     color:rgb(255,255,255);
     padding-bottom: 0px;
-    margin-bottom: 0px;
+    margin-top: 0px;
 }
 .menu {
     position:sticky;
