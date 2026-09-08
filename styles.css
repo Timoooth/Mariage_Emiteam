@@ -31,7 +31,6 @@ header h2 {
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
-    font-size: clamp(1rem, 5vw, 9rem);
 }
 }
 header {
