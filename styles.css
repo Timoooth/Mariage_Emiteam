@@ -142,9 +142,10 @@ h2 {
 }
 @media (max-width: 768px) {
 .card {
-padding:0px;
+padding:10px;
 width:90vw; 
 margin :10px auto 10px auto;
+box-sizing: border-box;
 }
 }
 
@@ -178,6 +179,7 @@ max-width:980px;
 padding : 10px;
 border: 0px;
 margin:auto;
+box-sizing: border-box;
 }
 @media (max-width: 768px) {
 .carte {
