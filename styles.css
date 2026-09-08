@@ -21,7 +21,7 @@ header h1 {
 }
 header h2 {
     margin-top:0;
-    margin-bottom:0;
+    margin-bottom:-40px;
     padding: 1px;
 }
 }
@@ -163,7 +163,7 @@ footer {
     url('Images/20260808_075522.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
-    font-family :'Candara light', sans-serif;       
+    font-family :'Overlock', sans-serif;       
     text-align: center;
     font-size: clamp(0.9rem, 4vw, 1.8rem);
     margin-top : 50px;
