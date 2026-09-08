@@ -224,11 +224,13 @@ footer {
     background-position: center top;
     background-repeat: no-repeat;
     height:25vw;
-    padding:10vh;
+    padding-top:10vh;
 }
 footer .f{
     font-size: clamp(1rem, 5vw, 9rem);
     padding: 0;
+    margin :0px;
     margin-top:-11vh;
+    
 }
 }
