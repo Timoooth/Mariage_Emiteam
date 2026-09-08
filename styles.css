@@ -7,7 +7,7 @@ body {
 header {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
                 url('Images/header_light.jpg');
-    font-family :'Bellota', sans-serif;
+    font-family :'Waterfall', sans-serif;
     background-size: cover;
     background-position: center 2%;
     background-repeat: no-repeat;
@@ -16,20 +16,22 @@ header {
     padding: 8vh 0vh;
 }
 header h1 {
-    font-size: clamp(1rem, 4vw, 9rem);
+    font-size: clamp(1rem, 6vw, 9rem);
     padding: 0;
-    margin-top:-10px;
+    margin-top:-40px;
+    margin-bottom:0px;
 }
 header h2 {
-    font-size: clamp(0.9rem, 1vw, 1.8rem);
+    font-size: clamp(0.9rem, 6vw, 3rem);
     color:rgb(255,255,255);
-    margin-top:-40px;
+    margin-top:-20px;
+    margin-bottom:-20px;
     padding: 0px;
 }
 
 @media (max-width: 768px) {
 header {
-    font-family :'Bellota', sans-serif;    
+    font-family :'Waterfall', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
     margin-top: 0vw;
@@ -122,7 +124,8 @@ h2 {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin: 10px auto 0 auto;  
+    margin: 10px auto 0 auto; 
+    box-sizing: border-box; 
 }
 @media (max-width: 768px) {
 .card {
@@ -187,33 +190,41 @@ button:hover {
 }
 
 
-
+.coeur {
+font-size: 0.5em;
+vertical-align: top;
+}
 footer {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
         url('Images/header_light.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
-    font-family :'Bellota', sans-serif;       
+    font-family :'Waterfall', sans-serif;       
     text-align: center;
-    font-size: clamp(0.9rem, 4vw, 1.8rem);
+    font-size: clamp(0.9rem, 3vw, 5rem);
     margin-top : 10px;
     background-position: 0% 60%;
     color: rgb(255,255,255);
     background-color: #d9b99b;
-    padding: 15vh 0vh;
+    padding: 10vh 0vh;
+    box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
 footer {
     background-position: center top;
     background-repeat: no-repeat;
-    height:30vw;
-    padding-top:1vh;
+    height:60vw;
+    padding-top:2vh;
+    box-sizing: border-box;
 }
 footer .f{
-    font-size: clamp(1rem, 5vw, 9rem);
+    font-size: clamp(1rem, 6vw, 9rem);
     padding: 0px;
-    margin :0px;
-   
+    margin :-30px;
+.coeur {
+font-size: 0.2em;
+vertical-align: top;
+}   
 }
 }
