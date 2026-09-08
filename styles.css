@@ -20,18 +20,7 @@ header h2 {
     margin-bottom:20;
     padding: 0;
 }
-.menu a {
-    display: inline-block;
-    position:sticky;
-    background-color: white;
-    color: #b07c52;
-    padding: 12px 20px;
-    margin: 5px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
+
 }
 header {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
