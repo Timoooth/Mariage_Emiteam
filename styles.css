@@ -10,8 +10,8 @@ header {
     font-family :'Overlock', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
-    margin: -40px;
-    padding :0vh 0vh;
+    margin: -20px;
+    padding :1vh 0vh;
 }
 header h1 {
     margin:0;
@@ -49,6 +49,7 @@ header h2 {
     background-color: #d9b99b;
     text-align: center;
     padding: 15px;
+    font-size: clamp(0.5rem, 3vw, 2rem);
 }
  
 .menu a {
@@ -56,7 +57,7 @@ header h2 {
     position:sticky;
     background-color: white;
     color: #b07c52;
-    padding: 12px 20px;
+    padding: 0px 0px;
     margin: 5px;
     border-radius: 25px;
     text-decoration: none;
