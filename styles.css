@@ -10,8 +10,8 @@ header {
     font-family :'Overlock', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
-    margin-top: -8vw;
-    margin-bottom: -8vw;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
     padding :1vh 0vh;
 }
 header h1 {
@@ -111,13 +111,13 @@ width:90vw;
 }
 }
 .card {
+    width:90vw;
     max-width:1000px;
     background: white;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin:0px;
-    margin-top: 20px;
+    margin: 10px auto 0 auto;  
 }
 
 form {
@@ -145,8 +145,9 @@ input, select, textarea {
 
 @media (max-width: 768px) {
 .carte {
-max-width:90vw;
-width:90vw;
+max-width:10vw;
+width:40vw;
+margin: 0;
 }
 }
 
@@ -154,8 +155,8 @@ width:90vw;
 max-width:50vw;
 width:50vw;
 height:50vh;
-border: 10px;
-margin:10px;
+border: 100px;
+margin:100px;
 }
 
 button {
