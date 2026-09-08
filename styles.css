@@ -10,7 +10,8 @@ header {
     font-family :'Overlock', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
-    margin: -8vw;
+    margin-top: -8vw;
+    margin-bottom: -8vw;
     padding :1vh 0vh;
 }
 header h1 {
@@ -90,7 +91,7 @@ width:90vw;
 }
 .photo-lieu {
     width: 90vw;
-    max-width: 10000px;
+    max-width: 1000px;
     height: auto;
     border-radius: 10px;
 }
