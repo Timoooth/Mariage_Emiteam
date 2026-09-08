@@ -31,7 +31,7 @@ header {
     background-repeat: no-repeat;
     color: rgb(255,255,255);
     text-align: center;
-    padding: 0vh 0vh;
+    padding: 6vh 0vh;
 }
 header h1 {
     font-size: clamp(1rem, 5vw, 9rem);
