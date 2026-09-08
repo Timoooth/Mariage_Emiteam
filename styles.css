@@ -10,8 +10,8 @@ header {
     font-family :'Overlock', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
-    margin-top: 0vw;
-    margin-bottom: 0vw;
+    margin-top: -7vw;
+    margin-bottom: -7vw;
     padding :1vh 0vh;
 }
 header h1 {
@@ -45,12 +45,36 @@ header h2 {
     margin:0;
     padding: 0px;
 }
+@media (max-width: 768px) {
+header {
+    font-family :'Overlock', sans-serif;    
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
+    padding :1vh 0vh;
+}
+header h1 {
+    margin:0;
+    padding: 0;
+}
+header h2 {
+    margin:0;
+    padding: 0;
+}
+}
 .menu {
     position:sticky;
     background-color: #d9b99b;
     text-align: center;
     padding: 15px;
+    font-size: clamp(0.5rem, 1vw, 2rem);
+}
+@media (max-width: 768px) {
+.menu {
+    padding: 15px;
     font-size: clamp(0.5rem, 3vw, 2rem);
+}
 }
  
 .menu a {
@@ -84,16 +108,17 @@ nav a {
     font-weight: bold;
 }
 
-@media (max-width: 768px) {
-.photo-lieu {
-width:90vw;
-}
-}
+
 .photo-lieu {
     width: 90vw;
     max-width: 1000px;
     height: auto;
     border-radius: 10px;
+}
+@media (max-width: 768px) {
+.photo-lieu {
+width:90vw;
+}
 }
 
 section {
@@ -105,11 +130,7 @@ section {
 h2 {
     color: #b07c52;
 }
-@media (max-width: 768px) {
-.card {
-width:90vw;
-}
-}
+
 .card {
     width:90vw;
     max-width:1000px;
@@ -118,6 +139,13 @@ width:90vw;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     margin: 10px auto 0 auto;  
+}
+@media (max-width: 768px) {
+.card {
+padding:0px;
+width:90vw; 
+margin :10px auto 10px auto;
+}
 }
 
 form {
@@ -143,22 +171,22 @@ input, select, textarea {
     margin-bottom: 0px;
 }
 
+.carte {
+width:100vw;
+height:50vh;
+max-width:980px;
+padding : 10px;
+border: 0px;
+margin:auto;
+}
 @media (max-width: 768px) {
 .carte {
-max-width:10vw;
-width:40vw;
-margin: 0;
+    width:90vw;
+    max-width:85vw;
+    padding:10px;
+    margin: auto;
 }
 }
-
-.carte {
-max-width:50vw;
-width:50vw;
-height:50vh;
-border: 100px;
-margin:100px;
-}
-
 button {
     background-color: #b07c52;
     color: white;
@@ -172,14 +200,7 @@ button:hover {
     background-color: #966744;
 }
 
-@media (max-width: 768px) {
-footer {
-background-position: center bottom;
-background-repeat: no-repeat;
-height:1vw;
-padding:1px;
-}
-}
+
 
 footer {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
@@ -189,9 +210,23 @@ footer {
     font-family :'Overlock', sans-serif;       
     text-align: center;
     font-size: clamp(0.9rem, 4vw, 1.8rem);
-    margin-top : 50px;
+    margin-top : 10px;
     background-position: 0% 60%;
     color: rgb(255,255,255);
     background-color: #d9b99b;
     padding: 15vh 1vh;
+}
+
+@media (max-width: 768px) {
+footer {
+    background-position: center top;
+    background-repeat: no-repeat;
+    height:25vw;
+    padding:10vh;
+}
+footer .f{
+    font-size: clamp(1rem, 5vw, 9rem);
+    padding: 0;
+    margin-top:-11vh;
+}
 }
