@@ -83,9 +83,14 @@ nav a {
     font-weight: bold;
 }
 
+@media (max-width: 768px) {
 .photo-lieu {
-    width: 100%;
-    max-width: 1000px;
+width:90vw;
+}
+}
+.photo-lieu {
+    width: 90vw;
+    max-width: 10000px;
     height: auto;
     border-radius: 10px;
 }
@@ -99,13 +104,18 @@ section {
 h2 {
     color: #b07c52;
 }
-
+@media (max-width: 768px) {
 .card {
+width:90vw;
+}
+}
+.card {
+    max-width:1000px;
     background: white;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin:auto;
+    margin:0px;
     margin-top: 20px;
 }
 
@@ -130,6 +140,21 @@ input, select, textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+.carte {
+max-width:90vw;
+width:90vw;
+}
+}
+
+.carte {
+max-width:50vw;
+width:50vw;
+height:50vh;
+border: 10px;
+margin:10px;
 }
 
 button {
