@@ -10,7 +10,7 @@ header {
     font-family :'Overlock', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
-    margin: -7vw;
+    margin: -8vw;
     padding :1vh 0vh;
 }
 header h1 {
@@ -149,7 +149,7 @@ button:hover {
 footer {
 background-position: center bottom;
 background-repeat: no-repeat;
-height:10vw;
+height:1vw;
 padding:1px;
 }
 }
