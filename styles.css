@@ -7,7 +7,7 @@ body {
 
 @media (max-width: 768px) {
 header {
-    font-family :'Candara light', sans-serif;    
+    font-family :'Overlock', sans-serif;    
     background-position: center top;
     background-repeat: no-repeat;
     padding-bottom: 0;
@@ -28,25 +28,25 @@ header h2 {
 header {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
                 url('Images/20260808_075522.jpg');
-    font-family :'Candara light', sans-serif;
+    font-family :'Overlock', sans-serif;
     background-size: cover;
     background-position: center 2%;
     background-repeat: no-repeat;
     color: rgb(255,255,255);
     text-align: center;
-    padding: 4vh 0vh;
+    padding: 2vh 0vh;
 }
 header h1 {
     font-size: clamp(1rem, 5vw, 9rem);
     padding: 1px 0;
-    margin-top: 10px;
+    margin-top: 40px;
     margin-bottom: 0px;
 }
 header h2 {
     font-size: clamp(0.9rem, 2vw, 1.8rem);
     color:rgb(255,255,255);
-    padding-bottom: 0px;
     margin-top: 0px;
+    padding-bottom: 40px;
 }
 .menu {
     position:sticky;
