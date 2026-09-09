@@ -1,9 +1,18 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family :'Overlock', sans-serif; 
     color: #333;
     background-color: #fdfaf6;
 }
+@media (max-width: 768px) {
+body {
+    margin: 0;
+    font-family :'Overlock', sans-serif; 
+    color: #333;
+    background-color: #fdfaf6;
+}
+}
+
 header {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
                 url('Images/header_light.jpg');
@@ -32,7 +41,7 @@ header h2 {
 @media (max-width: 768px) {
 header {
     font-family :'Waterfall', sans-serif;    
-    background-position: center top;
+    background-position: center 10%;
     background-repeat: no-repeat;
     margin-top: 0vw;
     margin-bottom: 0vw;
@@ -40,11 +49,11 @@ header {
 }
 header h1 {
     font-size: clamp(1rem, 9vw, 9rem);
-    margin-top:-15px;
+    margin-top:-10px;
     padding: 0;
 }
 header h2 {
-    font-size: clamp(0.5rem, 3vw, 1.8rem);
+    font-size: clamp(0.5rem, 4vw, 1.8rem);
     margin-top : -5px;
     margin-bottom:-5px;
     padding: 0;
@@ -55,12 +64,13 @@ header h2 {
     background-color: #d9b99b;
     text-align: center;
     padding: 10px;
-    font-size: clamp(0.5rem, 1vw, 2rem);
+    font-family :'Overlock', sans-serif; 
+    font-size: clamp(0.5rem, 1.1vw, 2rem);
 }
 @media (max-width: 768px) {
 .menu {
-    padding: 15px;
-    font-size: clamp(0.5rem, 3vw, 2rem);
+    padding: 5px;
+    font-size: clamp(0.5rem, 4vw, 0.9rem);
 }
 }
  
@@ -119,6 +129,7 @@ h2 {
 }
 
 .card {
+    font-size: clamp(0.5rem, 4vw, 1.2rem);
     width:90vw;
     max-width:1000px;
     background: white;
@@ -190,11 +201,6 @@ button:hover {
     background-color: #966744;
 }
 
-
-.coeur {
-font-size: 0.5em;
-vertical-align: top;
-}
 footer {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
         url('Images/header_light.jpg');
@@ -202,30 +208,38 @@ footer {
     background-repeat: no-repeat;
     font-family :'Waterfall', sans-serif;       
     text-align: center;
-    font-size: clamp(0.9rem, 3vw, 5rem);
-    margin-top : 10px;
-    background-position: 0% 60%;
+    margin-top : 50px;
+    height : 80vh;
+    background-position: 0% 55%;
     color: rgb(255,255,255);
     background-color: #d9b99b;
-    padding: 10vh 0vh;
+    padding: 7vh 0vh;
     box-sizing: border-box;
+}
+footer .f{
+    font-size: clamp(1rem, 5vw, 9rem);
+    padding: 0px;
+    margin-top:0px;
+    margin:0px;}
+.coeur {
+font-size: clamp(0rem, 1.2vw, 9rem);
+vertical-align: top;
 }
 
 @media (max-width: 768px) {
 footer {
-    background-position: center top;
+    background-position: center 30%;
     background-repeat: no-repeat;
     height:60vw;
-    padding-top:2vh;
+    padding-top:1vh;
     box-sizing: border-box;
 }
 footer .f{
-    font-size: clamp(1rem, 8vw, 9rem);
+    font-size: clamp(1rem, 7vw, 9rem);
     padding: 0px;
-    margin-top:10px;
+    margin-top:10px;}
 .coeur {
-font-size: 0.2em;
+font-size: clamp(0rem, 2vw, 9rem);
 vertical-align: top;
-}   
 }
 }
