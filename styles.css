@@ -53,7 +53,7 @@ header h2 {
     position:sticky;
     background-color: #d9b99b;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     font-size: clamp(0.5rem, 1vw, 2rem);
 }
 @media (max-width: 768px) {
