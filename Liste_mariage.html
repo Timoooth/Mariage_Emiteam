@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage de Émilie et Timothée</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="ts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Waterfall&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overlock&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Images/favicon.png">
+</head>
+<body>
+
+<header>
+    <h1>Émilie et Timothée</h1>
+    <h2>Samedi 18 Septembre 2027</h2>
+</header>
+
+<nav class="menu">
+    <a href="index.html">Accueil</a>    
+    <a href="Lieux.html">Lieux</a>
+    <a href="Contact.html">Confirmer votre présence</a>
+</nav>
+
+<section id="Contact">
+    <h2>Liste de mariage</h2>
+    <div class="card">
+        <div id="cadeau"></div>     
+    </div>
+</section>
+
+<script>
+async function chargerCadeaux() {
+
+    const reponse = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQCs1nSVQYtWdJ_5Kew4lInlKUVimjjINpnfrOH8EY_ex7icXQ6phxOZg3xNaoCfxzgjqkc0Z_NdB9F/pub?gid=0&single=true&output=csv");
+
+    const texte = await reponse.text();
+
+    console.log(texte);
+}
+
+chargerCadeaux();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+const cadeaux = [
+    {
+        id: 1,
+        nom: "Machine à café",
+        prix: 300
+    },
+    {
+        id: 2,
+        nom: "Robot pâtissier",
+        prix: 500
+    }
+];
+
+let html = "";
+
+for(let i = 0; i < cadeaux.length; i++) {
+
+    html += `
+        <h3>${cadeaux[i].nom}</h3>
+        <p>${cadeaux[i].prix} €</p>
+    `;
+}
+
+document.getElementById("cadeau").innerHTML = html;
+</script>
+
+<section id="rsvp">
+    <div class="card">
+        <button onclick="participer(1)">
+        Je participe
+        </button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="f">
+    <span class="coeur">❤️</span>Émilie et Timothée<span class="coeur">❤️</span><br>Merci de célébrer ce moment avec nous !
+    </div>
+</footer>
+
+</body>
+</html>

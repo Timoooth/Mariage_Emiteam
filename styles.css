@@ -190,6 +190,8 @@ box-sizing: border-box;
 }
 button {
     background-color: #b07c52;
+    font-family :'Overlock', sans-serif;
+    font-size: clamp(0.5rem, 1vw, 1.2rem);
     color: white;
     border: none;
     padding: 8px;
