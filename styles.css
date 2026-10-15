@@ -203,6 +203,60 @@ button:hover {
     background-color: #966744;
 }
 
+
+
+<!-- Pour liste de mariage 
+.cadeau-card{
+    margin-bottom: 30px;
+}
+.cadeau-titre{
+    background:#ffffff;
+    color:rgb(0, 0, 0);
+    padding:20px;
+    display:inline-block;
+    font-size:32px;
+    margin-bottom:15px;
+}
+.cadeau-contenu{
+    display:flex;
+    gap:15px;
+}
+.cadeau-image img{
+    width:15vw;
+    background:#ffffff;
+    color:rgb(0, 0, 0);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:30px;
+}
+.cadeau-infos{
+    flex:1;
+}
+.barre{
+    width:300px;
+    height:10px;
+
+    border:1px solid #ffffff;
+    border-radius:15px;
+
+    overflow:hidden;
+
+    background:#e0e0e0;
+}
+.remplissage{
+    height:100%;
+
+    background:#3ac7ff;
+
+    transition:0.5s;
+}
+
+
+
+
 footer {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
         url('Images/header_light.jpg');

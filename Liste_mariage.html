@@ -12,19 +12,67 @@
     <link href="https://fonts.googleapis.com/css2?family=Overlock&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="Images/favicon.png">
 </head>
-<body>
 
+<script>
+async function chargerCadeaux() {
+
+    const reponse = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQCs1nSVQYtWdJ_5Kew4lInlKUVimjjINpnfrOH8EY_ex7icXQ6phxOZg3xNaoCfxzgjqkc0Z_NdB9F/pub?gid=0&single=true&output=csv");
+    const texte = await reponse.text();
+    const lignes = texte.split("\n");
+    const premierCadeau = lignes[1].split(",");
+    console.log(cadeau[2]);
+    console.log(cadeau[3]);
+
+let html = "";
+for(let i = 1; i < lignes.length; i++) {
+    const cadeau = lignes[i].split(",");
+        let progression =
+            (cadeau[3] / cadeau[2]) * 100;
+        if(cadeau[1] == "") {
+        continue;
+    }
+
+html += `
+<div class="cadeau-card">
+    <div class="cadeau-titre">
+        ${cadeau[1]}
+    </div>
+    <div class="cadeau-contenu">
+        <div class="cadeau-image">
+            <img src="Images/${cadeau[5]}">
+        </div>
+        <div class="cadeau-infos">
+            <p>Montant atteint : ${cadeau[3]} €</p>
+            <p>Montant total : ${cadeau[2]} €</p>
+        </div>
+    </div>
+    <div class="barre">
+        <div class="remplissage"
+            style="width:${Math.min(progression,100)}%"
+        </div>
+    </div>
+    </div>
+        <p>${Math.round(progression)} % financé</p>
+    </div>
+</div>
+`;
+}
+document.getElementById("cadeau").innerHTML = html;
+}
+chargerCadeaux();
+
+
+</script>
+<body>
 <header>
     <h1>Émilie et Timothée</h1>
     <h2>Samedi 18 Septembre 2027</h2>
 </header>
-
 <nav class="menu">
     <a href="index.html">Accueil</a>    
     <a href="Lieux.html">Lieux</a>
     <a href="Contact.html">Confirmer votre présence</a>
 </nav>
-
 <section id="Contact">
     <h2>Liste de mariage</h2>
     <div class="card">
@@ -32,65 +80,7 @@
     </div>
 </section>
 
-<script>
-async function chargerCadeaux() {
-
-    const reponse = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQCs1nSVQYtWdJ_5Kew4lInlKUVimjjINpnfrOH8EY_ex7icXQ6phxOZg3xNaoCfxzgjqkc0Z_NdB9F/pub?gid=0&single=true&output=csv");
-
-    const texte = await reponse.text();
-
-    console.log(texte);
-}
-
-chargerCadeaux();
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-const cadeaux = [
-    {
-        id: 1,
-        nom: "Machine à café",
-        prix: 300
-    },
-    {
-        id: 2,
-        nom: "Robot pâtissier",
-        prix: 500
-    }
-];
-
-let html = "";
-
-for(let i = 0; i < cadeaux.length; i++) {
-
-    html += `
-        <h3>${cadeaux[i].nom}</h3>
-        <p>${cadeaux[i].prix} €</p>
-    `;
-}
-
-document.getElementById("cadeau").innerHTML = html;
-</script>
+</body>
 
 <section id="rsvp">
     <div class="card">
