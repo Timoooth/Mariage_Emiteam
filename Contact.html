@@ -12,73 +12,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Overlock&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="Images/favicon.png">
 </head>
+
 <body>
+    <header>
+        <h1>Émilie et Timothée</h1>
+        <h2>Samedi 18 Septembre 2027</h2>
+    </header>
 
-<header>
-    <h1>Émilie et Timothée</h1>
-    <h2>Samedi 18 Septembre 2027</h2>
-</header>
+    <nav class="menu">
+        <a href="index.html">Accueil</a>    
+        <a href="Lieux.html">Lieux</a>
+        <a href="Contact.html">Confirmer votre présence</a>
+    </nav>
 
-<nav class="menu">
-    <a href="index.html">Accueil</a>    
-    <a href="Lieux.html">Lieux</a>
-    <a href="Contact.html">Confirmer votre présence</a>
-</nav>
+    <section id="Contact">
+        <h2>Confirmez votre présence</h2>
+        <div class="card">
+            <p>
+                Pour préparer au mieux cet événement, nous avons besoin de votre réponse le plus rapidement possible !<br>
+                Merci à tous !
+            </p>
+        </div>
+    </section>
 
-<section id="Contact">
-    <h2>Confirmez votre présence</h2>
-    <div class="card">
-        <p>
-            Pour préparer au mieux cet événement, nous avons besoin de votre réponse le plus rapidement possible !<br>
-            Merci à tous !
-        </p>
-    </div>
-</section>
+    <section id="rsvp">
+        <div class="card">
+            <form action="https://formspree.io/f/myeydvyg" method="POST">
+                <input
+                    type="text"
+                    name="Nom"
+                    placeholder="Nom et prénom"
+                    required>
+                <select name="Presence" required>
+                    <option value="" disabled selected>
+                        Votre réponse
+                    </option>
+                    <option>Je serai présent(e)</option>
+                    <option>Je ne pourrai pas venir</option>
+                </select>
+                <select name="Nombre" required>
+                    <option>Je viens seul</option>
+                    <option>Nous serons 2</option>
+                    <option>Nous serons 3</option>
+                    <option>Nous serons 4</option>
+                    <option>Famille nombreuse ? Laissez un commentaire</option>
+                </select>
+                <textarea
+                    name="Message"
+                    rows="3"
+                    placeholder="Message aux mariés"></textarea>
+                <input type="hidden" name="_captcha" value="false">
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
 
-<section id="rsvp">
-    <div class="card">
-
-        <form action="https://formspree.io/f/myeydvyg" method="POST">
-            <input
-                type="text"
-                name="Nom"
-                placeholder="Nom et prénom"
-                required>
-
-            <select name="Presence" required>
-                <option value="" disabled selected>
-                    Votre réponse
-                </option>
-                <option>Je serai présent(e)</option>
-                <option>Je ne pourrai pas venir</option>
-            </select>
-
-            <select name="Nombre" required>
-                <option>Je viens seul</option>
-                <option>Nous serons 2</option>
-                <option>Nous serons 3</option>
-                <option>Nous serons 4</option>
-                <option>Famille nombreuse ? Laissez un commentaire</option>
-            </select>
-            <textarea
-                name="Message"
-                rows="3"
-                placeholder="Message aux mariés"></textarea>
-
-            <input type="hidden" name="_captcha" value="false">
-
-            <button type="submit">Envoyer</button>
-
-        </form>
-
-    </div>
-</section>
-
-<footer>
-    <div class="f">
-    <span class="coeur">❤️</span>Émilie et Timothée<span class="coeur">❤️</span><br>Merci de célébrer ce moment avec nous !
-    </div>
-</footer>
+    <footer>
+        <div class="f">
+        <span class="coeur">❤️</span>Émilie et Timothée<span class="coeur">❤️</span><br>Merci de célébrer ce moment avec nous !
+        </div>
+    </footer>
 
 </body>
 </html>
