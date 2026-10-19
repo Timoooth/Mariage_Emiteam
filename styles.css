@@ -225,13 +225,13 @@ button:hover {
     align-items: center;
 }
 .cadeau-image img{
-    width:10vw;
+    width:clamp(0.5rem, 30vw, 15rem);
     background:#ffffff;
     color:rgb(0, 0, 0);
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-left :50px;
+    margin-left :0px;
     font-size:30px;
 }
 .cadeau-infos{
@@ -239,10 +239,10 @@ button:hover {
     color:rgb(0, 0, 0);
     padding:0px;
     display:inline-block;
-    font-size:18px;
+    font-size: clamp(0.5rem, 2.5vw, 1.2rem);
     margin-top : -20px;
     margin-bottom : 0px;
-    margin-left:120px;
+    margin-left: 5vw;
     flex:1;
 }
 
@@ -250,13 +250,13 @@ button:hover {
     background:#ffffff;
     color:rgb(0, 0, 0);
     padding:0px;
-    font-size:18px;
-    margin-top:-15px;
-    margin-left:105px;
+    font-size: clamp(0.5rem, 2.5vw, 1.2rem);
+    margin-top:-10px;
+    margin-left:clamp(0.5rem, 17vw, 16.8rem);
     flex:1;    
 }
 .barre{
-    width:300px;
+    width:clamp(0.5rem, 45vw, 39rem);
     height:10px;
     border:1px solid #ffffff;
     border-radius:15px;
