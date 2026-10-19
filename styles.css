@@ -232,7 +232,7 @@ button:hover {
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-left :0px;
+    margin-left:clamp(0rem,1.3vw,10rem);
     font-size:30px;
 }
 .cadeau-infos{
@@ -240,17 +240,19 @@ button:hover {
     color:rgb(0, 0, 0);
     padding:0px;
  /*   display:inline-block;*/
-    font-size: clamp(0.5rem, 2.5vw, 1.2rem);
+    font-size: clamp(0.75rem, 2.5vw, 1.2rem);
     margin-top : -10px;
     margin-bottom : 0px;
-    margin-left: 5vw;
+    margin-left: 4vw;
     flex:1;
 }
+
 
 .cadeau_participation{
     background:#ffffff;
     color:rgb(0, 0, 0);
     padding:0px;
+    align-items: stretch;
     font-size: clamp(0.5rem, 2.5vw, 1.2rem);
     margin-top:-10px;
     margin-left:clamp(0.5rem, 17vw, 16.8rem);
@@ -271,7 +273,27 @@ button:hover {
     transition:0.5s;
     margin-bottom : 40px;
 }
-
+.button-cadeau {
+    background-color: #b07c52;
+    font-family :'Overlock', sans-serif;
+    font-size: clamp(0.5rem, 2.7vw, 1.2rem);
+    color: white;
+    border: none;
+    width:clamp(0.5rem, 30vw, 15rem); ;
+    margin-top:0vh;
+    margin-left:clamp(0rem, 0vw, 12rem);
+    height:38px;
+    /*padding: clamp(0.75em, 3vw, 1rem);*/
+    border-radius: 5px;
+    cursor: pointer;
+}
+.ligne-participation{
+    margin-top:1vh;
+    display: flex;
+    gap: 10px;
+    align-items: stretch;    
+    align-items: center;
+}
 /*STYLE POUR PIED DE PAGE*/
 footer {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),

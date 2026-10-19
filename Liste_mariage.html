@@ -22,7 +22,7 @@
     <nav class="menu">
         <a href="index.html">Accueil</a>    
         <a href="Lieux.html">Lieux</a>
-        <a href="Contact.html">Confirmer votre présence</a>
+        <a href="Contact.html">Votre présence</a>
         <a href="Liste_mariage.html">Liste de mariage</a>
     </nav>
 
@@ -33,15 +33,8 @@
 
     <script>
         async function chargerCadeaux() {
-/*          const reponse = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQCs1nSVQYtWdJ_5Kew4lInlKUVimjjINpnfrOH8EY_ex7icXQ6phxOZg3xNaoCfxzgjqkc0Z_NdB9F/pub?gid=0&single=true&output=csv");
-            const texte = await reponse.text();
-            const lignes = texte.split("\n");*/
-            console.time("fetch");
-                const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec");
-            console.timeEnd("fetch");
-            console.time("json");
+            const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec");
             const lignes = await reponse.json();
-            console.timeEnd("json");
             let html = "";
                 for(let i = 1; i < lignes.length; i++) {
                     const cadeau = lignes[i];
@@ -57,28 +50,47 @@
             <div class="cadeau-titre">
                 ${cadeau[1]}
             </div>
+            
             <div class="cadeau-contenu">
                 <div class="cadeau-image">
                     <img src="Images/${cadeau[5]}">
                 </div>
+                
                 <div class="cadeau-infos">
-                    <p>Prix total : ${cadeau[2]} €            Montant atteint : ${cadeau[3]} €</p>
+                    <p>Prix total : ${cadeau[2]} €     -      Montant atteint : ${cadeau[3]} €</p>
                     <div class="barre">
                         <div class="remplissage"
                             style="width:${Math.min(progression,100)}%">
                         </div>
                     </div>
+                    
                     <div class="cadeau_participation">
                         <p>Reste ${cadeau[2] - cadeau[3]}€  </p>
                     </div>
-                    <input
-                        type="number"
-                        min="1"
-                        placeholder="Montant (€)"
-                        id="montant-${cadeau[0]}">
-                        <button onclick="participer(${cadeau[0]})">
-                        Je participe
-                    </button>
+                    
+                    <div class="ligne-participation">
+                        <input
+                            type="text"
+                            placeholder="De la part de..."
+                            id="nom-${cadeau[0]}"></textarea>
+                    </div>    
+
+                    <div class="ligne-participation">
+                        <textarea
+                            placeholder="Un petit message pour nous ?"
+                            id="message-${cadeau[0]}"></textarea>
+                    </div>                         
+                    
+                    <div class="ligne-participation">
+                        <input
+                            type="number"
+                            min="1"
+                            placeholder="Montant (€)"
+                            id="montant-${cadeau[0]}">
+                        <button class="button-cadeau" onclick="participer(${cadeau[0]})">
+                            Je participe
+                        </button> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -88,20 +100,29 @@
         }
         chargerCadeaux();
         async function participer(id){
-            const montant =
-                document.getElementById(`montant-${id}`).value;
+            const montant = document.getElementById(`montant-${id}`).value;
+            const nom = document.getElementById(`nom-${id}`).value;
+            const message = document.getElementById(`message-${id}`).value;
             const reponse = await fetch("https://script.google.com/macros/s/AKfycbxx5xTz-8xPoV5lSv4qegJ1eNiukH3X2tyqApaG9MMX1sFslTkV9agCCk18lw8tC-Ux-g/exec",
                 {
                     method: "POST",
                     body: JSON.stringify({
                         id: id,
-                        montant: montant
+                        montant: montant,
+                        nom: nom,
+                        message: message
                     })
                 }
             );
+                console.log("ID :", id);
+                console.log("Nom :", nom);
+                console.log("Message :", message);
+                console.log("Montant :", montant);
             const resultat = "Participation enregistrée, merci beaucoup !" /*await reponse.text();*/
             alert(resultat);
             document.getElementById(`montant-${id}`).value = "";
+            document.getElementById(`nom-${id}`).value = "";
+            document.getElementById(`message-${id}`).value = "";
             /*chargerCadeaux();*/
 }
     </script>
