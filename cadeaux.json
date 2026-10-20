@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "nom": "Sauteuse - LE CREUSET",
+    "prix": 245,
+    "collecte": 0,
+    "image": "sauteuse.png"
+  },
+  {
+    "id": 2,
+    "nom": "Porte vélo - THULE",
+    "prix": 600,
+    "collecte": 0,
+    "image": "porte_velo.png"
+  },
+
+  {
+    "id": 3,
+    "nom": "Coffret couverts - OPINEL",
+    "prix": 150,
+    "collecte": 0,
+    "image": "couverts.png"
+  }
+]

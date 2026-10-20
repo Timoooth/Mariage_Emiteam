@@ -32,32 +32,43 @@
     </section>
 
     <script>
+        let cadeaux = [];
         async function chargerCadeaux() {
-            const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec");
-            const lignes = await reponse.json();
-            let html = "";
-                for(let i = 1; i < lignes.length; i++) {
-                    const cadeau = lignes[i];
-                        let progression =
-                            (cadeau[3] / cadeau[2]) * 100;
-                        if(cadeau[1] == "") {
-                continue;
-                }
+            const reponse = await fetch("cadeaux.json");
+            cadeaux = await reponse.json();
+            afficherCadeaux();
+        }
+        chargerCadeaux();
 
+
+function afficherCadeaux() {
+    let html = "";
+    for(let i = 0; i < cadeaux.length; i++) {
+        const cadeau = cadeaux[i];
+        let progression =
+            (cadeau.collecte / cadeau.prix) * 100;
+        if(cadeau.nom == "") {
+            continue;
+        }
 
         html += `
         <div class="cadeau-card">
             <div class="cadeau-titre">
-                ${cadeau[1]}
+                ${cadeau.nom}
             </div>
             
             <div class="cadeau-contenu">
                 <div class="cadeau-image">
-                    <img src="Images/${cadeau[5]}">
+                    <img src="Images/${cadeau.image}">
                 </div>
                 
                 <div class="cadeau-infos">
-                    <p>Prix total : ${cadeau[2]} €     -      Montant atteint : ${cadeau[3]} €</p>
+                    <p>
+                        Prix total : ${cadeau.prix} €
+                        -
+                        Montant atteint : ${cadeau.collecte} €
+                    </p>
+
                     <div class="barre">
                         <div class="remplissage"
                             style="width:${Math.min(progression,100)}%">
@@ -65,45 +76,56 @@
                     </div>
                     
                     <div class="cadeau_participation">
-                        <p>Reste ${cadeau[2] - cadeau[3]}€  </p>
+                        <p>
+                            Reste ${cadeau.prix - cadeau.collecte} €
+                        </p>
                     </div>
                     
                     <div class="ligne-participation">
                         <input
                             type="text"
                             placeholder="De la part de..."
-                            id="nom-${cadeau[0]}"></textarea>
-                    </div>    
+                            id="nom-${cadeau.id}">
+                    </div>
 
                     <div class="ligne-participation">
-                        <textarea
-                            placeholder="Un petit message pour nous ?"
-                            id="message-${cadeau[0]}"></textarea>
-                    </div>                         
-                    
+                    <textarea
+                        placeholder="Un petit message pour nous ?"
+                        id="message-${cadeau.id}"></textarea>
+                        </textarea>
+                    </div>
+
                     <div class="ligne-participation">
                         <input
                             type="number"
                             min="1"
                             placeholder="Montant (€)"
-                            id="montant-${cadeau[0]}">
-                        <button class="button-cadeau" onclick="participer(${cadeau[0]})">
+                            id="montant-${cadeau.id}">
+
+                        <button
+                            class="button-cadeau"
+                            onclick="participer(${cadeau.id})">
                             Je participe
-                        </button> 
+                        </button>
                     </div>
+
                 </div>
             </div>
         </div>
         `;
-        }
-        document.getElementById("cadeau").innerHTML = html;
-        }
-        chargerCadeaux();
+}
+
+    document.getElementById("cadeau").innerHTML = html;
+}
+
+
         async function participer(id){
             const montant = document.getElementById(`montant-${id}`).value;
             const nom = document.getElementById(`nom-${id}`).value;
             const message = document.getElementById(`message-${id}`).value;
-            const reponse = await fetch("https://script.google.com/macros/s/AKfycbxx5xTz-8xPoV5lSv4qegJ1eNiukH3X2tyqApaG9MMX1sFslTkV9agCCk18lw8tC-Ux-g/exec",
+            /*const reponse = await fetch("https://script.google.com/macros/s/AKfycbxx5xTz-8xPoV5lSv4qegJ1eNiukH3X2tyqApaG9MMX1sFslTkV9agCCk18lw8tC-Ux-g/exec",*/
+            const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec",
+                                        
                 {
                     method: "POST",
                     body: JSON.stringify({
@@ -114,16 +136,20 @@
                     })
                 }
             );
-                console.log("ID :", id);
-                console.log("Nom :", nom);
-                console.log("Message :", message);
-                console.log("Montant :", montant);
+            console.log("ID :", id);
+            console.log("Nom :", nom);
+            console.log("Message :", message);
+            console.log("Montant :", montant);
+            const cadeau = cadeaux.find(c => c.id === id);
+            if (cadeau) {
+                cadeau.collecte += Number(montant);
+            }
             const resultat = "Participation enregistrée, merci beaucoup !" /*await reponse.text();*/
             alert(resultat);
-            document.getElementById(`montant-${id}`).value = "";
+            /*document.getElementById(`montant-${id}`).value = "";
             document.getElementById(`nom-${id}`).value = "";
-            document.getElementById(`message-${id}`).value = "";
-            /*chargerCadeaux();*/
+            document.getElementById(`message-${id}`).value = "";*/
+            afficherCadeaux();
 }
     </script>
 

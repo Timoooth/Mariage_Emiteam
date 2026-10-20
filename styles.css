@@ -169,7 +169,7 @@ input, select, textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 0px;
+    color:#333;
 }
 
 .carte {
