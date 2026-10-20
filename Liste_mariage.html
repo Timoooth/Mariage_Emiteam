@@ -34,13 +34,24 @@
     <script>
         let cadeaux = [];
         async function chargerCadeaux() {
-            const reponse = await fetch("cadeaux.json");
-            cadeaux = await reponse.json();
+            const reponseJson =
+                await fetch("cadeaux.json");
+            cadeaux =
+                await reponseJson.json();
+            const reponseCollectes =
+                await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec");
+            const collectes =
+                await reponseCollectes.json();
+            collectes.forEach(c => {
+                const cadeau =
+                    cadeaux.find(x => x.id === c.id);
+                if (cadeau) {
+                    cadeau.collecte = c.collecte;
+                }
+            });
             afficherCadeaux();
-        }
-        chargerCadeaux();
-
-
+}
+chargerCadeaux();
 function afficherCadeaux() {
     let html = "";
     for(let i = 0; i < cadeaux.length; i++) {
@@ -123,7 +134,6 @@ function afficherCadeaux() {
             const montant = document.getElementById(`montant-${id}`).value;
             const nom = document.getElementById(`nom-${id}`).value;
             const message = document.getElementById(`message-${id}`).value;
-            /*const reponse = await fetch("https://script.google.com/macros/s/AKfycbxx5xTz-8xPoV5lSv4qegJ1eNiukH3X2tyqApaG9MMX1sFslTkV9agCCk18lw8tC-Ux-g/exec",*/
             const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec",
                                         
                 {
@@ -144,11 +154,8 @@ function afficherCadeaux() {
             if (cadeau) {
                 cadeau.collecte += Number(montant);
             }
-            const resultat = "Participation enregistrée, merci beaucoup !" /*await reponse.text();*/
+            const resultat = "Participation enregistrée, merci beaucoup !"
             alert(resultat);
-            /*document.getElementById(`montant-${id}`).value = "";
-            document.getElementById(`nom-${id}`).value = "";
-            document.getElementById(`message-${id}`).value = "";*/
             afficherCadeaux();
 }
     </script>
