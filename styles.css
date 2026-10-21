@@ -235,6 +235,16 @@ button:hover {
     margin-left:clamp(0rem,1.3vw,10rem);
     font-size:30px;
 }
+.cadeau-cagnotte{
+    width:clamp(0.5rem, 30vw, 15rem);
+    background:#ffffff;
+    color:rgb(0, 0, 0);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-left:clamp(0rem,1.3vw,10rem);
+    font-size:30px;
+}
 .cadeau-infos{
     background:#ffffff;
     color:rgb(0, 0, 0);

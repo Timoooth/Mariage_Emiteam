@@ -128,6 +128,7 @@ function afficherCadeaux() {
             </div>
         </div>
         `;
+  
 }
 
     document.getElementById("cadeau").innerHTML = html;
@@ -174,17 +175,15 @@ function afficherCadeaux() {
                 document.getElementById("popup").style.display = "none";
             }
     </script>
-
-<!--Ligne à coller sous " <p>Reste ${cadeau[2] - cadeau[3]}€  </p> " pour passer en pourcentage restant à payer pour ce cadeau
-                        
-                        <p>${Math.round(progression)} % financé</p>
--->
+    
 
     <footer>
         <div class="f">
         <span class="coeur">❤️</span>Émilie et Timothée<span class="coeur">❤️</span><br>Merci de célébrer ce moment avec nous !
         </div>
     </footer>
+
+<!-- FENETRES POPUP -->
 <div id="popup" class="popup">
     <div class="popup-content">
         <h3>Merci ❤️</h3>
@@ -192,5 +191,14 @@ function afficherCadeaux() {
         <button onclick="fermerPopup()">Fermer</button>
     </div>
 </div>
+
+<div id="popup-1" class="popup">
+    <div class="popup-content">
+        <h3>Cagnotte</h3>
+        <p>Nous avons enfin créé notre compte commun ! Nous vous proposons de faire directement un virement plutot que sur une cagnotte en ligne. Merci beaucoup !</p>
+        <button onclick="fermerPopup()">Fermer</button>
+    </div>
+</div>
+
 </body>
 </html>
