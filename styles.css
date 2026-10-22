@@ -326,8 +326,18 @@ button:hover {
     text-align: center;
 }
 
+.popup-content h4 {
+font-size : 3vh;
+}
+
+.popup-content p {
+font-size : 2vh;
+}
+
 .popup-content button {
     margin-top: 15px;
+    font-size:2vh;
+    width:10vw;
 }
 
 /*STYLE POUR PIED DE PAGE*/

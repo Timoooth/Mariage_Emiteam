@@ -32,6 +32,7 @@
     </section>
 
     <script>
+        let participationEnCours = null;
         let cadeaux = [];
         async function chargerCadeaux() {
             // Chargement ultra rapide du JSON
@@ -104,10 +105,7 @@ function afficherCadeaux() {
                     </div>
 
                     <div class="ligne-participation">
-                    <textarea
-                        placeholder="Un petit message pour nous ?"
-                        id="message-${cadeau.id}"></textarea>
-                        </textarea>
+                    <textarea placeholder="Un petit message pour nous ?" id="message-${cadeau.id}"></textarea>
                     </div>
                     <div class="ligne-participation">
                         <input
@@ -139,7 +137,7 @@ function afficherCadeaux() {
             const montant = document.getElementById(`montant-${id}`).value;
             const nom = document.getElementById(`nom-${id}`).value;
             const message = document.getElementById(`message-${id}`).value;
-            const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec",
+            /*const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec",
                                         
                 {
                     method: "POST",
@@ -150,7 +148,7 @@ function afficherCadeaux() {
                         message: message
                     })
                 }
-            );
+            );*/
             console.log("ID :", id);
             console.log("Nom :", nom);
             console.log("Message :", message);
@@ -160,19 +158,56 @@ function afficherCadeaux() {
                     alert("Ce cadeau est déjà entièrement financé.");
                     return;
                 }       
-            if (cadeau) {
-                cadeau.collecte += Number(montant);
-            }
-            const resultat = "Participation enregistrée, merci beaucoup !"
+            participationEnCours = {
+                id: id,
+                montant: montant,
+                nom: nom,
+                message: message
+            };
             ouvrirPopup();
-            afficherCadeaux();
-}
+        }
             function ouvrirPopup() {
                 document.getElementById("popup").style.display = "flex";
+            }
+            
+            async function confirmerVirement() {
+                if (!participationEnCours) {
+                    return;
+                }
+                try {
+                    const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            id: participationEnCours.id,
+                            montant: participationEnCours.montant,
+                            nom: participationEnCours.nom,
+                            message: participationEnCours.message
+                        })
+                    });
+                    const cadeau = cadeaux.find(
+                        c => c.id === participationEnCours.id
+                    );
+                    if (cadeau) {
+                        cadeau.collecte += Number(participationEnCours.montant);
+                    }
+                    afficherCadeaux();
+                    participationEnCours = null;
+                    document.getElementById("popup").style.display = "none";
+                    alert("Merci ❤️ Votre participation a bien été enregistrée.");
+                } catch (erreur) {
+                    console.error(erreur);
+                    alert("Une erreur est survenue lors de l'enregistrement.");
+                }
             }
 
             function fermerPopup() {
                 document.getElementById("popup").style.display = "none";
+            }
+            function copierIBAN() {
+            navigator.clipboard.writeText(
+                "FR76 XXXX XXXX XXXX XXXX XXXX XXX"
+                );
+                alert("IBAN copié");
             }
     </script>
     
@@ -186,9 +221,28 @@ function afficherCadeaux() {
 <!-- FENETRES POPUP -->
 <div id="popup" class="popup">
     <div class="popup-content">
-        <h3>Merci ❤️</h3>
-        <p>Votre participation a bien été enregistrée.</p>
-        <button onclick="fermerPopup()">Fermer</button>
+        <h4>Merci ❤️</h4>
+        <p>
+            Votre participation a bien été enregistrée sur notre site.<br>
+            Pour envoyer votre participation, vous pouvez faire un virement sur notre tout nouveau compte commun !
+        </p>
+        <p>
+            <b><br><br>Emilie et Timothée<br>
+            IBAN : FR76 XXXX XXXX XXXX XXXX XXXX XXX<br>
+            BIC : XXXXXXXX</b>
+        </p>
+        <p>
+            <br><br>Merci d'indiquer votre nom dans le libellé du virement.
+        </p>
+        <button onclick="copierIBAN()">
+            Copier l'IBAN
+        </button>
+        <button onclick="fermerPopup()">
+            Je le ferai plus tard
+        </button>
+        <button onclick="confirmerVirement()">
+            J'ai effectué le virement
+        </button>
     </div>
 </div>
 
