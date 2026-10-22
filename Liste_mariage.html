@@ -105,7 +105,7 @@ function afficherCadeaux() {
                     </div>
 
                     <div class="ligne-participation">
-                    <textarea placeholder="Un petit message pour nous ?" id="message-${cadeau.id}"></textarea>
+                    <textarea placeholder="Montant" id="message-${cadeau.id}"></textarea>
                     </div>
                     <div class="ligne-participation">
                         <input
@@ -193,7 +193,7 @@ function afficherCadeaux() {
                     afficherCadeaux();
                     participationEnCours = null;
                     document.getElementById("popup").style.display = "none";
-                    alert("Merci ❤️ Votre participation a bien été enregistrée.");
+                    document.getElementById("popupConfirmation").style.display = "flex";
                 } catch (erreur) {
                     console.error(erreur);
                     alert("Une erreur est survenue lors de l'enregistrement.");
@@ -209,6 +209,9 @@ function afficherCadeaux() {
                 );
                 alert("IBAN copié");
             }
+            function fermerConfirmation() {
+                document.getElementById("popupConfirmation").style.display = "none";
+            }
     </script>
     
 
@@ -223,8 +226,7 @@ function afficherCadeaux() {
     <div class="popup-content">
         <h4>Merci ❤️</h4>
         <p>
-            Votre participation a bien été enregistrée sur notre site.<br>
-            Pour envoyer votre participation, vous pouvez faire un virement sur notre tout nouveau compte commun !
+            Pour envoyer votre participation, vous pouvez faire un virement sur notre tout nouveau compte commun !<br>Cliquer ensuite sur "J'ai effectué le virement" pour enregistrer votre participation sur notre site. Merci !
         </p>
         <p>
             <b><br><br>Emilie et Timothée<br>
@@ -232,7 +234,7 @@ function afficherCadeaux() {
             BIC : XXXXXXXX</b>
         </p>
         <p>
-            <br><br>Merci d'indiquer votre nom dans le libellé du virement.
+            <br><br>N'oubliez pas d'indiquer votre nom dans le libellé du virement.
         </p>
         <button onclick="copierIBAN()">
             Copier l'IBAN
@@ -246,11 +248,17 @@ function afficherCadeaux() {
     </div>
 </div>
 
-<div id="popup-1" class="popup">
-    <div class="popup-content">
-        <h3>Cagnotte</h3>
-        <p>Nous avons enfin créé notre compte commun ! Nous vous proposons de faire directement un virement plutot que sur une cagnotte en ligne. Merci beaucoup !</p>
-        <button onclick="fermerPopup()">Fermer</button>
+<div id="popupConfirmation" class="popup-overlay">
+    <div class="popup-content confirmation">
+        <h2>Merci ❤️</h2>
+
+        <p>
+            Votre participation a bien été enregistrée.
+        </p>
+
+        <button onclick="fermerConfirmation()">
+            Fermer
+        </button>
     </div>
 </div>
 

@@ -303,12 +303,26 @@ button:hover {
     opacity: 0.7;
 }
 .ligne-participation{
+    font-family: inherit;
     margin-top:1vh;
     display: flex;
     gap: 10px;
     align-items: stretch;    
     align-items: center;
 }
+
+input,
+textarea {
+    font-family: inherit;
+    font-size: 1.7vh;
+    color: #555;
+}
+input::placeholder,
+textarea::placeholder {
+    font-family: inherit;
+    font-size:1.7vh;
+}
+
 .popup {
     display: none;
     position: fixed;
@@ -326,6 +340,22 @@ button:hover {
     text-align: center;
 }
 
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
 .popup-content h4 {
 font-size : 3vh;
 }
@@ -338,6 +368,36 @@ font-size : 2vh;
     margin-top: 15px;
     font-size:2vh;
     width:10vw;
+}
+
+.confirmation {
+    text-align: center;
+    max-width: 400px;
+}
+
+.confirmation h2 {
+    color: #b88253;
+    margin-bottom: 15px;
+}
+
+.confirmation p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.confirmation button {
+    background: #b88253;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirmation button:hover {
+    background: #a06f44;
 }
 
 /*STYLE POUR PIED DE PAGE*/
