@@ -250,7 +250,7 @@ button:hover {
     color:rgb(0, 0, 0);
     padding:0px;
  /*   display:inline-block;*/
-    font-size: clamp(0.7rem, 2.5vw, 1.2rem);
+    font-size: clamp(0.6rem, 2.5vw, 1.2rem);
     margin-top : -10px;
     margin-bottom : 0px;
     margin-left: 4vw;
@@ -263,7 +263,7 @@ button:hover {
     color:rgb(0, 0, 0);
     padding:0px;
     align-items: stretch;
-    font-size: clamp(0.5rem, 2.5vw, 1.2rem);
+    font-size: clamp(0.5rem, 2.5vw, 1,2rem);
     margin-top:-10px;
     margin-left:clamp(0.5rem, 17vw, 16.8rem);
     flex:1;    
@@ -367,7 +367,7 @@ font-size : 2vh;
 .popup-content button {
     margin-top: 15px;
     font-size:2vh;
-    width:10vw;
+    width : clamp(0.5rem, 40vw, 15rem)
 }
 
 .confirmation {

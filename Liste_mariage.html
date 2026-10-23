@@ -135,6 +135,10 @@ function afficherCadeaux() {
 
         async function participer(id){
             const montant = document.getElementById(`montant-${id}`).value;
+            if (montant <= 0) {
+                alert("Le montant doit être supérieur à 0 €");
+                return;
+            }
             const nom = document.getElementById(`nom-${id}`).value;
             const message = document.getElementById(`message-${id}`).value;
             /*const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec",
@@ -226,7 +230,7 @@ function afficherCadeaux() {
     <div class="popup-content">
         <h4>Merci ❤️</h4>
         <p>
-            Pour envoyer votre participation, vous pouvez faire un virement sur notre tout nouveau compte commun !<br>Cliquer ensuite sur "J'ai effectué le virement" pour enregistrer votre participation sur notre site. Merci !
+            Pour envoyer votre participation, vous pouvez faire un virement sur notre tout nouveau compte commun !<br><br>Cliquez ensuite sur 'J'ai effectué le virement' pour enregistrer votre participation sur notre site. Merci !
         </p>
         <p>
             <b><br><br>Emilie et Timothée<br>
