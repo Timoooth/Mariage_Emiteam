@@ -13,11 +13,10 @@
     "collecte": 0,
     "image": "porte_velo.png"
   },
-
   {
     "id": 3,
-    "nom": "Coffret couverts - OPINEL",
-    "prix": 150,
+    "nom": "Ménagère couverts - GUY DEGRENNE",
+    "prix": 800,
     "collecte": 0,
     "image": "couverts.png"
   },
