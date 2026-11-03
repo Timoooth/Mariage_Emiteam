@@ -3,6 +3,7 @@ body {
     font-family :'Overlock', sans-serif; 
     color: #333;
     background-color: #fdfaf6;
+    font-size: clamp(0.5rem, 4vw, 1.18rem);
 }
 @media (max-width: 768px) {
 body {
