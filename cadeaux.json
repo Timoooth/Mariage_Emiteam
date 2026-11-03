@@ -8,20 +8,27 @@
   },
   {
     "id": 2,
+    "nom": "Poêle - LE CREUSET",
+    "collecte": 0,    
+    "prix": 205,
+    "image": "poele.png"
+  },
+  {
+    "id": 3,
     "nom": "Porte vélo - THULE",
     "prix": 600,
     "collecte": 0,
     "image": "porte_velo.png"
   },
   {
-    "id": 3,
+    "id": 4,
     "nom": "Ménagère couverts - GUY DEGRENNE",
     "prix": 800,
     "collecte": 0,
     "image": "couverts.png"
   },
     {
-    "id": 4,
+    "id": 5,
     "nom": "Entre Velay et Vivarais - MAISONS MARCON",
     "prix": 660,
     "collecte": 0,
