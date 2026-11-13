@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage de Émilie et Timothée</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="ts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Waterfall&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overlock&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Images/favicon.png">
+</head>
+
+<body>
+    <header>
+        <h1>Émilie et Timothée</h1>
+        <h2>Samedi 18 Septembre 2027</h2>
+    </header>
+
+    <!--
+    <nav class="menu">
+        <a href="index.html">Accueil</a>    
+        <a href="Lieux.html">Lieux</a>
+        <a href="Contact.html">Votre présence</a>
+        <a href="Liste_mariage.html">Liste de mariage</a>
+    </nav>-->
+
+    <section id="Contact">
+        <h2>Liste de mariage</h2>
+        <p> <br>Vous trouverez sur cette page des idées cadeaux qui nous font envie et qui nous ressemblent, il y aura aussi une cagnotte sur place.<br><br> </p>
+        <div id="cadeau"></div>
+
+        
+    </section>
+
+    <script>
+        let participationEnCours = null;
+        let cadeaux = [];
+        async function chargerCadeaux() {
+            // Chargement ultra rapide du JSON
+            const reponseJson = await fetch("cadeaux.json");
+            cadeaux = await reponseJson.json();
+            // Affichage immédiat
+            afficherCadeaux();
+            // Mise à jour des collectes en arrière-plan
+            const reponseCollectes = await fetch(
+                "https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec"
+            );
+            const collectes = await reponseCollectes.json();
+            collectes.forEach(c => {
+                const cadeau = cadeaux.find(x => x.id === c.id);
+                if (cadeau) {
+                    cadeau.collecte = c.collecte;
+                }
+            });
+            // Rafraîchit l'affichage avec les montants réels
+            afficherCadeaux();
+        }
+
+chargerCadeaux();
+function afficherCadeaux() {
+    let html = "";
+    for(let i = 0; i < cadeaux.length; i++) {
+        const cadeau = cadeaux[i];
+        let progression =
+            (cadeau.collecte / cadeau.prix) * 100;
+        const complet = cadeau.collecte >= cadeau.prix;    
+        if(cadeau.nom == "") {
+            continue;
+        }
+
+        html += `
+        <div class="cadeau-card">
+            <div class="cadeau-titre">
+                ${cadeau.nom}
+            </div>
+            
+            <div class="cadeau-contenu">
+                <div class="cadeau-image">
+                    <img src="Images/${cadeau.image}">
+                </div>
+                
+                <div class="cadeau-infos">
+                    <p>
+                        Prix total : ${cadeau.prix} €
+                        -
+                        Montant atteint : ${cadeau.collecte} €
+                    </p>
+
+                    <div class="barre">
+                        <div class="remplissage"
+                            style="width:${Math.min(progression,100)}%">
+                        </div>
+                    </div>
+                    
+                    <div class="cadeau_participation">
+                        <p>
+                            Reste ${cadeau.prix - cadeau.collecte} €
+                        </p>
+                    </div>
+                    
+                    <div class="ligne-participation">
+                        <input
+                            type="text"
+                            placeholder="De la part de..."
+                            id="nom-${cadeau.id}">
+                    </div>
+
+                    <div class="ligne-participation">
+                    <textarea placeholder="Un petit message pour nous ?" id="message-${cadeau.id}"></textarea>
+                    </div>
+                    <div class="ligne-participation">
+                        <input
+                            type="number"
+                            min="1"
+                            placeholder="Montant (€)"
+                            id="montant-${cadeau.id}">                  
+                        <button
+                            class="button-cadeau"
+                            onclick="participer(${cadeau.id})"
+                            ${complet ? "disabled" : ""}>
+                            ${complet ? "Cadeau financé" : "Je participe"}
+                        </button>
+                    
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        `;
+  
+}
+
+    document.getElementById("cadeau").innerHTML = html;
+}
+
+
+        async function participer(id){
+            const montant = document.getElementById(`montant-${id}`).value;
+            if (montant <= 0) {
+                alert("Le montant doit être supérieur à 0 €");
+                return;
+            }
+            const nom = document.getElementById(`nom-${id}`).value;
+            const message = document.getElementById(`message-${id}`).value;
+            /*const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec",
+                                        
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        id: id,
+                        montant: montant,
+                        nom: nom,
+                        message: message
+                    })
+                }
+            );*/
+            console.log("ID :", id);
+            console.log("Nom :", nom);
+            console.log("Message :", message);
+            console.log("Montant :", montant);
+            const cadeau = cadeaux.find(c => c.id === id);
+                if (cadeau.collecte >= cadeau.prix) {
+                    alert("Ce cadeau est déjà entièrement financé.");
+                    return;
+                }       
+            participationEnCours = {
+                id: id,
+                montant: montant,
+                nom: nom,
+                message: message
+            };
+            ouvrirPopup();
+        }
+            function ouvrirPopup() {
+                document.getElementById("popup").style.display = "flex";
+            }
+            
+            async function confirmerVirement() {
+                if (!participationEnCours) {
+                    return;
+                }
+                try {
+                    const reponse = await fetch("https://script.google.com/macros/s/AKfycby9IOmPH_89FOx6oJpxu4SiLrRhvb8BKeQGECdYXnsar-0c8oLkNmR6z7wImIKxRAnK/exec", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            id: participationEnCours.id,
+                            montant: participationEnCours.montant,
+                            nom: participationEnCours.nom,
+                            message: participationEnCours.message
+                        })
+                    });
+                    const cadeau = cadeaux.find(
+                        c => c.id === participationEnCours.id
+                    );
+                    if (cadeau) {
+                        cadeau.collecte += Number(participationEnCours.montant);
+                    }
+                    afficherCadeaux();
+                    participationEnCours = null;
+                    document.getElementById("popup").style.display = "none";
+                    document.getElementById("popupConfirmation").style.display = "flex";
+                } catch (erreur) {
+                    console.error(erreur);
+                    alert("Une erreur est survenue lors de l'enregistrement.");
+                }
+            }
+
+            function fermerPopup() {
+                document.getElementById("popup").style.display = "none";
+            }
+            function copierIBAN() {
+            navigator.clipboard.writeText(
+                "FR76 XXXX XXXX XXXX XXXX XXXX XXX"
+                );
+                alert("IBAN copié");
+            }
+            function fermerConfirmation() {
+                document.getElementById("popupConfirmation").style.display = "none";
+            }
+    </script>
+    
+
+    <footer>
+        <div class="f">
+        Merci beaucoup !
+        </div>
+    </footer>
+
+<!-- FENETRES POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h4>Merci ❤️</h4>
+        <p>
+            Pour envoyer votre participation, vous pouvez faire un virement sur notre tout nouveau compte commun !<br><br>Cliquez ensuite sur 'J'ai effectué le virement' pour enregistrer votre participation sur notre site. Merci !
+        </p>
+        <p>
+            <b><br><br>Emilie et Timothée<br>
+            IBAN : FR76 XXXX XXXX XXXX XXXX XXXX XXX<br>
+            BIC : XXXXXXXX</b>
+        </p>
+        <p>
+            <br><br>N'oubliez pas d'indiquer votre nom dans le libellé du virement.
+        </p>
+        <button onclick="copierIBAN()">
+            Copier l'IBAN
+        </button>
+        <button onclick="fermerPopup()">
+            Je le ferai plus tard
+        </button>
+        <button onclick="confirmerVirement()">
+            J'ai effectué le virement
+        </button>
+    </div>
+</div>
+
+<div id="popupConfirmation" class="popup-overlay">
+    <div class="popup-content confirmation">
+        <h2>Merci ❤️</h2>
+
+        <p>
+            Votre participation a bien été enregistrée.
+        </p>
+
+        <button onclick="fermerConfirmation()">
+            Fermer
+        </button>
+    </div>
+</div>
+
+</body>
+</html>
